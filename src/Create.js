@@ -5,14 +5,14 @@ const Create = () => {
    const [title, setTitle] = useState('');
    const [body, setBody] = useState('');
    const [author, setAuthor] = useState('faraj');
-   const [isPending, setPending] =  useState(false);
+   const [isPending, setIsPending] =  useState(false);
    const history = useHistory();
 
    const handleSubmit =     (e) => {
     e.preventDefault();
     const blog = { title, body, author}
 
-    setIspending(true);
+    setIsPending(true);
 
     fetch('http://localhost:8000/blogs', {
         method: 'POST',
@@ -20,7 +20,7 @@ const Create = () => {
         body: JSON.stringify(blog)    
     }).then(() => {
         console.log('new blog added');
-        setIspending(false);
+        setIsPending(false);
         history.push('/');
     })
    }
